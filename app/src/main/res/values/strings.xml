@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">ToDo App</string>
     <string name="task_list_title">Zadania do zrobienia:</string>
+    <string name="task_list_add_button">Dodaj zadanie</string>
+    <string name="new_task_cancel_button">Anuluj</string>
+
+    <string name="new_task_name">Nazwa:</string>
+    <string name="new_task_name_hint">nazwa</string>
+    <string name="new_task_date">Data wykonania:</string>
+    <string name="new_task_date_hint">01-01-2019</string>
+    <string name="new_task_category">Kategoria:</string>
+    <string name="new_task_category_hint">zakupy</string>
+
+    <string name="category_work">praca</string>
+    <string name="category_shopping">zakupy</string>
+    <string name="category_other">inne</string>
 </resources>
