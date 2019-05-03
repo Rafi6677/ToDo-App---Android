@@ -1,12 +1,10 @@
 package com.example.todoapp.model
 
-import java.util.*
-
 class Task {
 
     var id: Int = 0
     var name: String = ""
-    var date: String = Date().toString()
+    var date: String = ""
     var category: Category = Category.Other
 
     constructor(name: String, date: String, category: Category) {
@@ -15,4 +13,7 @@ class Task {
         this.category = category
     }
 
+    constructor() {
+
+    }
 }

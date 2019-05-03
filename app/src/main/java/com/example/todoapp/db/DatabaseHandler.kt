@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import com.example.todoapp.model.Category
 import com.example.todoapp.model.Task
 
 
@@ -30,19 +31,53 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     }
 
+
     fun insertData(task: Task) {
         val db = this.writableDatabase
-        var contentValues = ContentValues()
+        val contentValues = ContentValues()
 
         contentValues.put(COL_NAME, task.name)
         contentValues.put(COL_DATE, task.date)
         contentValues.put(COL_CATEGORY, task.category.toString())
 
-        var result = db.insert(TABLE_NAME, null, contentValues)
+        val result = db.insert(TABLE_NAME, null, contentValues)
 
         if(result == -1.toLong())
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+    }
+
+    fun readData() : MutableList<Task> {
+        var list : MutableList<Task> = ArrayList()
+        val db = this.readableDatabase
+        val query = "SELECT * FROM " + TABLE_NAME
+        val result = db.rawQuery(query, null)
+
+        if(result.moveToFirst()) {
+            do{
+                val categoryStr = result.getString(result.getColumnIndex(COL_CATEGORY)).toString()
+                val category = when(categoryStr) {
+                    "Work" -> Category.Work
+                    "Shopping" -> Category.Shopping
+                    else -> Category.Other
+                }
+
+                println(category)
+
+                var task = Task()
+                task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
+                task.name = result.getString(result.getColumnIndex(COL_NAME))
+                task.date = result.getString(result.getColumnIndex(COL_DATE))
+                task.category = category
+
+                list.add(task)
+            } while (result.moveToNext())
+        }
+
+        result.close()
+        db.close()
+
+        return list
     }
 }

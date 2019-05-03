@@ -8,6 +8,7 @@
     <string name="new_task_name_hint">np. oddanie projektu</string>
     <string name="new_task_date">Data wykonania:</string>
     <string name="new_task_date_hint">01/01/2019</string>
+    <string name="new_task_date_button">Wybierz</string>
     <string name="new_task_category">Kategoria:</string>
     <string name="new_task_category_hint">zakupy</string>
 
