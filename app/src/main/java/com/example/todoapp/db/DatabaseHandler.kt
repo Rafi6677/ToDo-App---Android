@@ -20,8 +20,8 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         val createTable = "CREATE TABLE " + TABLE_NAME + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_NAME + " VARCHAR(250), " +
-                COL_DATE + " VARCHAR(20)" +
-                COL_CATEGORY + " VARCHAR(8)"
+                COL_DATE + " VARCHAR(20), " +
+                COL_CATEGORY + " VARCHAR(8))"
 
         db?.execSQL(createTable)
     }
@@ -35,7 +35,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         var contentValues = ContentValues()
 
         contentValues.put(COL_NAME, task.name)
-        contentValues.put(COL_DATE, task.date.toString())
+        contentValues.put(COL_DATE, task.date)
         contentValues.put(COL_CATEGORY, task.category.toString())
 
         var result = db.insert(TABLE_NAME, null, contentValues)
