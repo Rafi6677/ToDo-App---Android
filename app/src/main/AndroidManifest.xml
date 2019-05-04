@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".activities.AddTaskActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activities.TaskListActivity"/>
         </activity>
         <activity android:name=".activities.TaskListActivity">
             <intent-filter>

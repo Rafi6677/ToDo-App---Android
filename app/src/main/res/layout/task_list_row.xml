@@ -20,17 +20,19 @@
     <TextView
             android:text="@string/new_task_date"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/taskDate_TextViewRow"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:textSize="18sp"
             android:paddingLeft="2dp"/>
     <TextView
             android:text="@string/new_task_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/taskCategory_TextViewRow"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:textSize="18sp"
             android:paddingLeft="2dp"/>
 

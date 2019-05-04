@@ -1,6 +1,7 @@
 package com.example.todoapp.activities
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -19,6 +20,8 @@ class AddTaskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_task)
+
+        supportActionBar?.title = "Nowe zadanie:"
 
         prepareButtons()
     }
@@ -56,6 +59,9 @@ class AddTaskActivity : AppCompatActivity() {
             } else {
                 insertData()
                 finish()
+                val intent = Intent(this, TaskListActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
 
