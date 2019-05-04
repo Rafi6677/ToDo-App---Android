@@ -60,9 +60,10 @@
         <TextView
                 android:text="@string/new_task_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/taskName_TextViewRowTitle"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"/>
@@ -78,9 +79,10 @@
         <TextView
                 android:text="@string/new_task_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/taskCategory_TextViewRowTitle"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"/>

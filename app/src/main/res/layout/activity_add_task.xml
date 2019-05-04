@@ -14,7 +14,7 @@
             android:id="@+id/taskCategory_TextView"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="20sp"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            android:paddingLeft="2dp"
             app:layout_constraintTop_toTopOf="@+id/taskCategory_RadioGroup"
             app:layout_constraintBottom_toBottomOf="@+id/taskCategory_RadioGroup"/>
     <TextView
@@ -22,10 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/taskName_TextView"
+            android:textSize="20sp"
+            android:paddingLeft="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:textSize="20sp" app:layout_constraintTop_toTopOf="@+id/taskName_EditText"
+            app:layout_constraintTop_toTopOf="@+id/taskName_EditText"
             app:layout_constraintBottom_toBottomOf="@+id/taskName_EditText"/>
     <EditText
             android:layout_width="0dp"
@@ -105,20 +105,23 @@
                 android:layout_height="match_parent"
                 android:id="@+id/taskDate_TextView"
                 android:layout_weight="1"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:paddingLeft="2dp"/>
         <TextView
                 android:text="@string/new_task_date_hint"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:id="@+id/dateChoosen_TextView"
                 android:layout_weight="1"
-                android:textSize="20sp"/>
+                android:textSize="24sp"/>
         <Button
                 android:text="@string/new_task_date_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/addDate_Button"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="2dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

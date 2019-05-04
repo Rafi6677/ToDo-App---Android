@@ -3,6 +3,7 @@ package com.example.todoapp.activities
 import android.app.DatePickerDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.example.todoapp.R
 import com.example.todoapp.db.DatabaseHandler
@@ -23,6 +24,14 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun prepareButtons() {
+        val calendar = Calendar.getInstance()
+
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        switchDateType(day, month, year, dateChoosen_TextView)
+
         taskCategory_RadioGroup.check(categoryWork_RadioButton.id)
 
         taskCategory_RadioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -34,14 +43,8 @@ class AddTaskActivity : AppCompatActivity() {
         }
 
         addDate_Button.setOnClickListener {
-            val calendar = Calendar.getInstance()
-
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-
             val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
-                dateChoosen_TextView.text = ""+ d + "/" + m + "/" + y
+                switchDateType(d, m, y, dateChoosen_TextView)
             }, year, month, day)
 
             dialog.show()
@@ -49,15 +52,29 @@ class AddTaskActivity : AppCompatActivity() {
 
         addTask_Button.setOnClickListener {
             if(checkIfAnyFieldIsEmpty()) {
-                Toast.makeText(this, "Wypełnij wszystkie pola.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Pole 'Nazwa' nie może być puste.", Toast.LENGTH_SHORT).show()
             } else {
                 insertData()
+                finish()
             }
         }
 
         cancel_Button.setOnClickListener {
             finish()
         }
+    }
+
+    private fun switchDateType(d: Int,m: Int, y: Int, editText: TextView) {
+        val mm = m+1
+
+        var day: String = d.toString()
+        var month: String = mm.toString()
+        val year: String = y.toString()
+
+        if(d < 10) day = "0$d"
+        if(mm < 10) month = "0$mm"
+
+        editText.text = "$day/$month/$year"
     }
 
     private fun checkIfAnyFieldIsEmpty() : Boolean {

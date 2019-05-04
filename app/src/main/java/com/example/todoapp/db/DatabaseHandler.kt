@@ -49,7 +49,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     }
 
     fun readData() : MutableList<Task> {
-        var list : MutableList<Task> = ArrayList()
+        val list : MutableList<Task> = ArrayList()
         val db = this.readableDatabase
         val query = "SELECT * FROM " + TABLE_NAME
         val result = db.rawQuery(query, null)
@@ -63,9 +63,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                     else -> Category.Other
                 }
 
-                println(category)
-
-                var task = Task()
+                val task = Task()
                 task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
                 task.name = result.getString(result.getColumnIndex(COL_NAME))
                 task.date = result.getString(result.getColumnIndex(COL_DATE))
