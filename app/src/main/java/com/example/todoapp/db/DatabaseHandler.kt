@@ -46,6 +46,8 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+
+        db.close()
     }
 
     fun readData() : MutableList<Task> {
@@ -65,6 +67,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
                 val task = Task()
                 task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
+
                 task.name = result.getString(result.getColumnIndex(COL_NAME))
                 task.date = result.getString(result.getColumnIndex(COL_DATE))
                 task.category = category
@@ -77,5 +80,12 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.close()
 
         return list
+    }
+
+    fun deleteData(id: Int) {
+        val db = this.writableDatabase
+
+        db.delete(TABLE_NAME, "$COL_ID=?", arrayOf(id.toString()))
+        db.close()
     }
 }

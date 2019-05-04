@@ -11,11 +11,12 @@
     <TextView
             android:text="@string/new_task_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/taskName_TextViewRow"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:paddingLeft="2dp"/>
+            android:paddingLeft="2dp"
+            android:paddingRight="4dp"/>
     <TextView
             android:text="@string/new_task_date"
             android:layout_width="match_parent"
