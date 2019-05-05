@@ -2,8 +2,10 @@ package com.example.todoapp.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.DialogInterface
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import com.example.todoapp.model.Category
 import com.example.todoapp.model.Task
@@ -42,10 +44,20 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
         val result = db.insert(TABLE_NAME, null, contentValues)
 
-        if(result == -1.toLong())
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
-        else
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+        if(result == -1.toLong()) {
+            AlertDialog.Builder(context)
+                .setTitle("Błąd!")
+                .setMessage("Czy chcesz ponowić próbę?")
+                .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                   insertData(task)
+                })
+                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { dialog, which ->
+
+                })
+                .show()
+        } else {
+            Toast.makeText(context, "Pomyślnie dodano zadanie.", Toast.LENGTH_SHORT).show()
+        }
 
         db.close()
     }
@@ -115,7 +127,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(query)
         db.close()
 
-        Toast.makeText(context, "Zaktualizowano dane.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Pomyślnie zaktualizowano dane.", Toast.LENGTH_SHORT).show()
     }
 
     fun deleteData(id: Int) {

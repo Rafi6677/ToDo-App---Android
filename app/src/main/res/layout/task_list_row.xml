@@ -5,8 +5,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp">
 
     <TextView
             android:text="@string/new_task_name"
@@ -15,9 +15,13 @@
             android:id="@+id/taskName_TextViewRow"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="18sp"
-            android:paddingLeft="2dp"
-            android:paddingRight="4dp"/>
+            android:textSize="16sp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/task_list_row_background"/>
     <TextView
             android:text="@string/new_task_date"
             android:layout_width="match_parent"
@@ -26,7 +30,10 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="18sp"
-            android:paddingLeft="2dp"/>
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/task_list_row_background"/>
     <TextView
             android:text="@string/new_task_category"
             android:layout_width="match_parent"
@@ -35,6 +42,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="18sp"
-            android:paddingLeft="2dp"/>
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/task_list_row_background"/>
 
 </LinearLayout>

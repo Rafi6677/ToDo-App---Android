@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorBackground">#408849</color>
+    <color name="colorBackgroundTitle">#1A381B</color>
+    <color name="colorBackgroundRow">#99860E</color>
+
+    <color name="colorAddTaskButton">#0F8606</color>
 </resources>
