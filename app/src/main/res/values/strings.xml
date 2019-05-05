@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ToDo App</string>
     <string name="task_list_title">Zadania do zrobienia:</string>
+    <string name="empty_task_list_title">Zadania do zrobienia:\n\nBrak zadań</string>
     <string name="task_list_add_button">Dodaj zadanie</string>
     <string name="new_task_cancel_button">Anuluj</string>
 
