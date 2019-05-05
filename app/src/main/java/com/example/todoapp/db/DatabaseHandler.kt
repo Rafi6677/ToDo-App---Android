@@ -66,8 +66,8 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 }
 
                 val task = Task()
-                task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
 
+                task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
                 task.name = result.getString(result.getColumnIndex(COL_NAME))
                 task.date = result.getString(result.getColumnIndex(COL_DATE))
                 task.category = category
@@ -80,6 +80,32 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.close()
 
         return list
+    }
+
+    fun readSingleRecord(id: Int) : Task {
+        /*val db = this.readableDatabase
+        val query = "SELECT * FROM " + TABLE_NAME + " WHERE $COL_ID = $id"
+        println(query)
+        val result = db.rawQuery(query, null)
+        val result = db.query(TABLE_NAME, )
+        val task = Task()
+
+        val categoryStr = result.getString(result.getColumnIndex(COL_CATEGORY)).toString()
+        val category = when(categoryStr) {
+            "Work" -> Category.Work
+            "Shopping" -> Category.Shopping
+            else -> Category.Other
+        }
+
+        task.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
+        task.name = result.getString(result.getColumnIndex(COL_NAME))
+        task.date = result.getString(result.getColumnIndex(COL_DATE))
+        task.category = category
+
+        result.close()
+        db.close()
+
+        return task*/
     }
 
     fun deleteData(id: Int) {

@@ -15,4 +15,7 @@
     <string name="category_work">praca</string>
     <string name="category_shopping">zakupy</string>
     <string name="category_other">inne</string>
+
+    <string name="edit_task_edit_button">Zapisz</string>
+    <string name="edit_task_delete_button">Usuń</string>
 </resources>

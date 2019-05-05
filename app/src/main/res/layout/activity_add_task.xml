@@ -11,29 +11,29 @@
             android:text="@string/new_task_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/taskCategory_TextView"
+            android:id="@+id/taskCategory_AddTaskTextView"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="20sp"
             android:paddingLeft="2dp"
-            app:layout_constraintTop_toTopOf="@+id/taskCategory_RadioGroup"
-            app:layout_constraintBottom_toBottomOf="@+id/taskCategory_RadioGroup"/>
+            app:layout_constraintTop_toTopOf="@+id/taskCategory_AddTaskRadioGroup"
+            app:layout_constraintBottom_toBottomOf="@+id/taskCategory_AddTaskRadioGroup"/>
     <TextView
             android:text="@string/new_task_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/taskName_TextView"
+            android:id="@+id/taskName_AddTaskTextView"
             android:textSize="20sp"
             android:paddingLeft="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/taskName_EditText"
-            app:layout_constraintBottom_toBottomOf="@+id/taskName_EditText"/>
+            app:layout_constraintTop_toTopOf="@+id/taskName_AddTaskEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/taskName_AddTaskEditText"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:ems="10"
-            android:id="@+id/taskName_EditText"
-            app:layout_constraintStart_toEndOf="@+id/taskName_TextView"
+            android:id="@+id/taskName_AddTaskEditText"
+            app:layout_constraintStart_toEndOf="@+id/taskName_AddTaskTextView"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:textSize="20sp"
@@ -46,45 +46,46 @@
     <RadioGroup
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/taskCategory_TextView"
+            app:layout_constraintStart_toEndOf="@+id/taskCategory_AddTaskTextView"
             android:layout_marginLeft="24dp" android:layout_marginStart="24dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/taskCategory_RadioGroup"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            android:id="@+id/taskCategory_AddTaskRadioGroup"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout_AddTask">
         <RadioButton
                 android:text="@string/category_work"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/categoryWork_RadioButton"
+                android:id="@+id/categoryWork_AddTaskRadioButton"
                 android:layout_weight="1"/>
         <RadioButton
                 android:text="@string/category_shopping"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/categoryShopping_RadioButton"
+                android:id="@+id/categoryShopping_AddTaskRadioButton"
                 android:layout_weight="1"/>
         <RadioButton
                 android:text="@string/category_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/categoryOther_RadioButton"
+                android:id="@+id/categoryOther_AddTaskRadioButton"
                 android:layout_weight="1"/>
     </RadioGroup>
     <Button
             android:text="@string/task_list_add_button"
             android:layout_width="0dp"
             android:layout_height="57dp"
-            android:id="@+id/addTask_Button"
+            android:id="@+id/addTask_AddTaskButton"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/cancel_Button"/>
+            app:layout_constraintBottom_toTopOf="@+id/cancel_AddTaskButton"/>
     <Button
             android:text="@string/new_task_cancel_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/cancel_Button" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/cancel_AddTaskButton" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -98,13 +99,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/taskName_EditText"
-            android:id="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/taskName_AddTaskEditText"
+            android:id="@+id/linearLayout_AddTask">
         <TextView
                 android:text="@string/new_task_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/taskDate_TextView"
+                android:id="@+id/taskDate_AddTaskTextView"
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:paddingLeft="2dp"/>
@@ -113,14 +114,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:id="@+id/dateChoosen_TextView"
+                android:id="@+id/dateChoosen_AddTaskTextView"
                 android:layout_weight="1"
                 android:textSize="22sp"/>
         <Button
                 android:text="@string/new_task_date_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/addDate_Button"
+                android:id="@+id/addDate_AddTaskButton"
                 android:layout_weight="1"
                 android:paddingLeft="2dp"/>
     </LinearLayout>

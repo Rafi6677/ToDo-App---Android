@@ -33,27 +33,27 @@ class AddTaskActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        switchDateType(day, month, year, dateChoosen_TextView)
+        switchDateType(day, month, year, dateChoosen_AddTaskTextView)
 
-        taskCategory_RadioGroup.check(categoryWork_RadioButton.id)
+        taskCategory_AddTaskRadioGroup.check(categoryWork_AddTaskRadioButton.id)
 
-        taskCategory_RadioGroup.setOnCheckedChangeListener { group, checkedId ->
+        taskCategory_AddTaskRadioGroup.setOnCheckedChangeListener { group, checkedId ->
             taskCategory = when(checkedId) {
-                categoryWork_RadioButton.id -> Category.Work
-                categoryShopping_RadioButton.id -> Category.Shopping
+                categoryWork_AddTaskRadioButton.id -> Category.Work
+                categoryShopping_AddTaskRadioButton.id -> Category.Shopping
                 else -> Category.Other
             }
         }
 
-        addDate_Button.setOnClickListener {
+        addDate_AddTaskButton.setOnClickListener {
             val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
-                switchDateType(d, m, y, dateChoosen_TextView)
+                switchDateType(d, m, y, dateChoosen_AddTaskTextView)
             }, year, month, day)
 
             dialog.show()
         }
 
-        addTask_Button.setOnClickListener {
+        addTask_AddTaskButton.setOnClickListener {
             if(checkIfAnyFieldIsEmpty()) {
                 Toast.makeText(this, "Pole 'Nazwa' nie może być puste.", Toast.LENGTH_SHORT).show()
             } else {
@@ -65,7 +65,7 @@ class AddTaskActivity : AppCompatActivity() {
             }
         }
 
-        cancel_Button.setOnClickListener {
+        cancel_AddTaskButton.setOnClickListener {
             finish()
         }
     }
@@ -84,12 +84,12 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun checkIfAnyFieldIsEmpty() : Boolean {
-        return taskName_EditText.text.toString().isEmpty()
+        return taskName_AddTaskEditText.text.toString().isEmpty()
     }
 
     private fun insertData() {
-        val taskName = taskName_EditText.text.toString()
-        val taskDate = dateChoosen_TextView.text.toString()
+        val taskName = taskName_AddTaskEditText.text.toString()
+        val taskDate = dateChoosen_AddTaskTextView.text.toString()
 
         println(taskCategory)
         val task = Task(taskName, taskDate, taskCategory)
