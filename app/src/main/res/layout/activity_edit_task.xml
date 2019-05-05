@@ -71,7 +71,7 @@
                 android:text="@string/new_task_date_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/addDate_EditTaskButton"
+                android:id="@+id/editDate_EditTaskButton"
                 android:layout_weight="1"
                 android:paddingLeft="2dp"/>
     </LinearLayout>

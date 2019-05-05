@@ -107,6 +107,17 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return task
     }
 
+    fun updateData(id: Int, name: String, date: String, category: Category) {
+        val db = this.readableDatabase
+        val query = "UPDATE $TABLE_NAME SET $COL_NAME = '$name', $COL_DATE = '$date', " +
+                "$COL_CATEGORY = '${category.toString()}' WHERE $COL_ID = '$id'"
+
+        db.execSQL(query)
+        db.close()
+
+        Toast.makeText(context, "Zaktualizowano dane.", Toast.LENGTH_SHORT).show()
+    }
+
     fun deleteData(id: Int) {
         val db = this.writableDatabase
 
