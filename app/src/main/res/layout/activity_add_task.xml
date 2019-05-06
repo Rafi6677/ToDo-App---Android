@@ -16,7 +16,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/addTask_AddTaskButton" android:id="@+id/scrollView_AddTask"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"
+            android:layout_marginBottom="8dp">
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:minWidth="100dp" android:minHeight="100dp">
@@ -30,11 +31,12 @@
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/taskName_AddTaskEditText"
                     app:layout_constraintBottom_toBottomOf="@+id/taskName_AddTaskEditText"
                     android:textColor="@android:color/white"
-                    android:background="@drawable/task_list_row_title_background" android:layout_marginStart="8dp"
+                    android:background="@drawable/task_list_row_title_background"
                     app:layout_constraintVertical_bias="1.0"/>
             <EditText
                     android:layout_width="0dp"
@@ -46,10 +48,10 @@
                     android:textSize="18sp"
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintTop_toTopOf="parent"
                     android:hint="@string/new_task_name_hint"
-                    android:layout_marginStart="8dp"
                     app:layout_constraintHorizontal_bias="1.0"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"/>
@@ -155,9 +157,10 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/add_task_button_background"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/cancel_AddTaskButton"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView_AddTask"/>
     <Button
             android:text="@string/new_task_cancel_button"
             android:layout_width="0dp"
@@ -169,8 +172,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/cancel_button_background"
+            android:background="@drawable/choose_date_button_background"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/addTask_AddTaskButton"/>
 
 </android.support.constraint.ConstraintLayout>

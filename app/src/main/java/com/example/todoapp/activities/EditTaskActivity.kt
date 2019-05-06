@@ -25,6 +25,8 @@ class EditTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)
 
+        supportActionBar?.title = "Edytuj zadanie:"
+
         setupData()
         prepareButtons()
     }

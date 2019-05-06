@@ -5,8 +5,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="2dp">
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
 
     <TextView
             android:text="@string/new_task_name"
