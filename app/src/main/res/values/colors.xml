@@ -9,4 +9,5 @@
     <color name="colorBackgroundRow">#99860E</color>
 
     <color name="colorAddTaskButton">#0F8606</color>
+    <color name="colorCancelButton">#880A16</color>
 </resources>

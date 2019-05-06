@@ -6,6 +6,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.todoapp.R
@@ -36,7 +37,7 @@ class EditTaskActivity : AppCompatActivity() {
         taskCategory = task.category
 
         taskName_EditTaskEditText.setText(task.name)
-        dateChoosen_EditTaskTextView.text = task.date
+        editDate_EditTaskButton.text = task.date
 
         when(task.category) {
             Category.Work -> taskCategory_EditTaskRadioGroup.check(categoryWork_EditTaskRadioButton.id)
@@ -55,7 +56,7 @@ class EditTaskActivity : AppCompatActivity() {
         }
 
         editDate_EditTaskButton.setOnClickListener {
-            val date = dateChoosen_EditTaskTextView.text.toString()
+            val date = editDate_EditTaskButton.text.toString()
 
             val dateParts = date.split("/")
             var day = dateParts[0]
@@ -66,7 +67,7 @@ class EditTaskActivity : AppCompatActivity() {
             if(month[0].equals('0')) month = month[1].toString()
 
             val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
-                switchDateType(d, m, y, dateChoosen_EditTaskTextView)
+                switchDateType(d, m, y, editDate_EditTaskButton)
             }, year.toInt(), month.toInt(), day.toInt())
 
             dialog.show()
@@ -106,7 +107,7 @@ class EditTaskActivity : AppCompatActivity() {
         }
     }
 
-    private fun switchDateType(d: Int,m: Int, y: Int, editText: TextView) {
+    private fun switchDateType(d: Int,m: Int, y: Int, button: Button) {
         val mm = m+1
 
         var day: String = d.toString()
@@ -116,7 +117,7 @@ class EditTaskActivity : AppCompatActivity() {
         if(d < 10) day = "0$d"
         if(mm < 10) month = "0$mm"
 
-        editText.text = "$day/$month/$year"
+        button.text = "$day/$month/$year"
     }
 
     private fun checkIfAnyFieldIsEmpty() : Boolean {
@@ -125,7 +126,7 @@ class EditTaskActivity : AppCompatActivity() {
 
     private fun updateData() {
         val taskName = taskName_EditTaskEditText.text.toString()
-        val taskDate = dateChoosen_EditTaskTextView.text.toString()
+        val taskDate = editDate_EditTaskButton.text.toString()
 
         db.updateData(id, taskName, taskDate, taskCategory)
     }

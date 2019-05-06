@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.todoapp.R
@@ -33,7 +34,7 @@ class AddTaskActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        switchDateType(day, month, year, dateChoosen_AddTaskTextView)
+        switchDateType(day, month, year, addDate_AddTaskButton)
 
         taskCategory_AddTaskRadioGroup.check(categoryWork_AddTaskRadioButton.id)
 
@@ -47,7 +48,7 @@ class AddTaskActivity : AppCompatActivity() {
 
         addDate_AddTaskButton.setOnClickListener {
             val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
-                switchDateType(d, m, y, dateChoosen_AddTaskTextView)
+                switchDateType(d, m, y, addDate_AddTaskButton)
             }, year, month, day)
 
             dialog.show()
@@ -70,7 +71,7 @@ class AddTaskActivity : AppCompatActivity() {
         }
     }
 
-    private fun switchDateType(d: Int,m: Int, y: Int, editText: TextView) {
+    private fun switchDateType(d: Int,m: Int, y: Int, button: Button) {
         val mm = m+1
 
         var day: String = d.toString()
@@ -80,7 +81,7 @@ class AddTaskActivity : AppCompatActivity() {
         if(d < 10) day = "0$d"
         if(mm < 10) month = "0$mm"
 
-        editText.text = "$day/$month/$year"
+        button.text = "$day/$month/$year"
     }
 
     private fun checkIfAnyFieldIsEmpty() : Boolean {
@@ -89,7 +90,7 @@ class AddTaskActivity : AppCompatActivity() {
 
     private fun insertData() {
         val taskName = taskName_AddTaskEditText.text.toString()
-        val taskDate = dateChoosen_AddTaskTextView.text.toString()
+        val taskDate = addDate_AddTaskButton.text.toString()
 
         println(taskCategory)
         val task = Task(taskName, taskDate, taskCategory)
