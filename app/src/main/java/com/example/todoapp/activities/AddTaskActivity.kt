@@ -97,4 +97,16 @@ class AddTaskActivity : AppCompatActivity() {
 
         db.insertData(task)
     }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putString("date", addDate_AddTaskButton.text.toString())
+
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        addDate_AddTaskButton.text = savedInstanceState?.getString("date")
+    }
 }

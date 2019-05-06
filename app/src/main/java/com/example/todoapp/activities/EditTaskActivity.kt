@@ -62,7 +62,7 @@ class EditTaskActivity : AppCompatActivity() {
 
             val dateParts = date.split("/")
             var day = dateParts[0]
-            var month = dateParts[1]
+            var month = (dateParts[1].toInt() - 1).toString()
             val year = dateParts[2]
 
             if(day[0].equals('0')) day = day[1].toString()
@@ -110,7 +110,7 @@ class EditTaskActivity : AppCompatActivity() {
     }
 
     private fun switchDateType(d: Int,m: Int, y: Int, button: Button) {
-        val mm = m+1
+        val mm = m-1
 
         var day: String = d.toString()
         var month: String = mm.toString()
@@ -131,5 +131,17 @@ class EditTaskActivity : AppCompatActivity() {
         val taskDate = editDate_EditTaskButton.text.toString()
 
         db.updateData(id, taskName, taskDate, taskCategory)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putString("date", editDate_EditTaskButton.text.toString())
+
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        editDate_EditTaskButton.text = savedInstanceState?.getString("date")
     }
 }
