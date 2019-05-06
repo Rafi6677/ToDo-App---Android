@@ -6,132 +6,144 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.AddTaskActivity"
-        android:background="@color/colorBackground">
+        android:background="@color/colorBackground"
+        android:focusableInTouchMode="true">
 
-    <TextView
-            android:text="@string/new_task_name"
-            android:layout_width="wrap_content"
+    <ScrollView
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:id="@+id/taskName_AddTaskTextView"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/taskName_AddTaskEditText"
-            app:layout_constraintBottom_toBottomOf="@+id/taskName_AddTaskEditText"
-            android:textColor="@android:color/white"
-            android:background="@drawable/task_list_row_title_background"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/taskName_AddTaskEditText"
-            app:layout_constraintStart_toEndOf="@+id/taskName_AddTaskTextView"
-            android:textSize="18sp"
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/addTask_AddTaskButton" android:id="@+id/scrollView_AddTask"
             app:layout_constraintTop_toTopOf="parent"
-            android:hint="@string/new_task_name_hint"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="1.0"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"/>
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:weightSum="3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/taskName_AddTaskEditText"
-            android:id="@+id/linearLayout_AddTask">
-        <TextView
-                android:text="@string/new_task_date"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0">
+        <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/taskDate_AddTaskTextView"
-                android:layout_weight="2"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/task_list_row_title_background"/>
-        <Button
-                android:text="@string/new_task_date_hint"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/addDate_AddTaskButton"
-                android:layout_weight="1"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:background="@drawable/choose_date_button_background"
-                android:textColor="@android:color/white"
-                android:textSize="25sp"/>
-    </LinearLayout>
-    <RadioGroup
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/taskCategory_AddTaskTextView"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:id="@+id/taskCategory_AddTaskRadioGroup"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout_AddTask">
-        <RadioButton
-                android:text="@string/category_work"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/categoryWork_AddTaskRadioButton"
-                android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:buttonTint="@android:color/white"/>
-        <RadioButton
-                android:text="@string/category_shopping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/categoryShopping_AddTaskRadioButton"
-                android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:buttonTint="@android:color/white"/>
-        <RadioButton
-                android:text="@string/category_other"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/categoryOther_AddTaskRadioButton"
-                android:layout_weight="1"
-                android:textColor="@android:color/white"
-                android:buttonTint="@android:color/white"/>
-    </RadioGroup>
-    <TextView
-            android:text="@string/new_task_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/taskCategory_AddTaskTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:padding="10dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/task_list_row_title_background"
-            app:layout_constraintTop_toTopOf="@+id/taskCategory_AddTaskRadioGroup"
-            app:layout_constraintBottom_toBottomOf="@+id/taskCategory_AddTaskRadioGroup"/>
+                android:layout_height="wrap_content" android:minWidth="100dp" android:minHeight="100dp">
+
+            <TextView
+                    android:text="@string/new_task_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/taskName_AddTaskTextView"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/taskName_AddTaskEditText"
+                    app:layout_constraintBottom_toBottomOf="@+id/taskName_AddTaskEditText"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/task_list_row_title_background" android:layout_marginStart="8dp"
+                    app:layout_constraintVertical_bias="1.0"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:id="@+id/taskName_AddTaskEditText"
+                    app:layout_constraintStart_toEndOf="@+id/taskName_AddTaskTextView"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:hint="@string/new_task_name_hint"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/taskName_AddTaskEditText"
+                    android:id="@+id/linearLayout_AddTask">
+                <TextView
+                        android:text="@string/new_task_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/taskDate_AddTaskTextView"
+                        android:layout_weight="2"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/task_list_row_title_background"/>
+                <Button
+                        android:text="@string/new_task_date_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/addDate_AddTaskButton"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/choose_date_button_background"
+                        android:textColor="@android:color/white"
+                        android:textSize="25sp"/>
+            </LinearLayout>
+            <TextView
+                    android:text="@string/new_task_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/taskCategory_AddTaskTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/task_list_row_title_background"
+                    app:layout_constraintTop_toTopOf="@+id/taskCategory_AddTaskRadioGroup"
+                    app:layout_constraintBottom_toBottomOf="@+id/taskCategory_AddTaskRadioGroup"/>
+            <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/taskCategory_AddTaskTextView"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:id="@+id/taskCategory_AddTaskRadioGroup"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_AddTask"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                <RadioButton
+                        android:text="@string/category_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/categoryWork_AddTaskRadioButton"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"/>
+                <RadioButton
+                        android:text="@string/category_shopping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/categoryShopping_AddTaskRadioButton"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"/>
+                <RadioButton
+                        android:text="@string/category_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/categoryOther_AddTaskRadioButton"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"/>
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
     <Button
             android:text="@string/task_list_add_button"
             android:layout_width="0dp"
@@ -144,22 +156,19 @@
             android:background="@drawable/add_task_button_background"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/cancel_AddTaskButton" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/taskCategory_AddTaskRadioGroup"
-            app:layout_constraintVertical_bias="0.96"/>
+            app:layout_constraintBottom_toTopOf="@+id/cancel_AddTaskButton"
+            android:layout_marginBottom="8dp"/>
     <Button
             android:text="@string/new_task_cancel_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/cancel_AddTaskButton"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/cancel_button_background"
             android:textColor="@android:color/white"
             android:textSize="20sp"/>
