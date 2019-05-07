@@ -37,7 +37,7 @@ class AddTaskActivity : AppCompatActivity() {
 
         taskCategory_AddTaskRadioGroup.check(categoryWork_AddTaskRadioButton.id)
 
-        taskCategory_AddTaskRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+        taskCategory_AddTaskRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             taskCategory = when(checkedId) {
                 categoryWork_AddTaskRadioButton.id -> Category.Work
                 categoryShopping_AddTaskRadioButton.id -> Category.Shopping
@@ -46,7 +46,7 @@ class AddTaskActivity : AppCompatActivity() {
         }
 
         addDate_AddTaskButton.setOnClickListener {
-            val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
+            val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, y, m, d ->
                 switchDateType(d, m, y, addDate_AddTaskButton)
             }, year, month, day)
 
@@ -91,7 +91,6 @@ class AddTaskActivity : AppCompatActivity() {
         val taskName = taskName_AddTaskEditText.text.toString()
         val taskDate = addDate_AddTaskButton.text.toString()
 
-        println(taskCategory)
         val task = Task(taskName, taskDate, taskCategory)
         val db = DatabaseHandler(this)
 

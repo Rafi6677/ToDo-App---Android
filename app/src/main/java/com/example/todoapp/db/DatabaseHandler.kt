@@ -29,9 +29,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db?.execSQL(createTable)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
-    }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
 
 
     fun insertData(task: Task) {
@@ -44,16 +42,14 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
         val result = db.insert(TABLE_NAME, null, contentValues)
 
-        if(result == -1.toLong()) {
+        if(result == (-1).toLong()) {
             AlertDialog.Builder(context)
                 .setTitle("Błąd!")
                 .setMessage("Czy chcesz ponowić próbę?")
-                .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                    insertData(task)
                 })
-                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { dialog, which ->
-
-                })
+                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { _, _ -> })
                 .show()
         } else {
             Toast.makeText(context, "Pomyślnie dodano zadanie.", Toast.LENGTH_SHORT).show()
@@ -65,7 +61,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     fun readData() : MutableList<Task> {
         val list : MutableList<Task> = ArrayList()
         val db = this.readableDatabase
-        val query = "SELECT * FROM " + TABLE_NAME
+        val query = "SELECT * FROM $TABLE_NAME"
         val result = db.rawQuery(query, null)
 
         if(result.moveToFirst()) {
@@ -96,9 +92,10 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     fun readSingleRecord(id: Int) : Task {
         val db = this.readableDatabase
-        val query = "SELECT * FROM " + TABLE_NAME + " WHERE $COL_ID = '$id'"
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COL_ID = '$id'"
         val result = db.rawQuery(query, null)
         val task = Task()
+
         if(result.moveToFirst()) {
             val categoryStr = result.getString(result.getColumnIndex(COL_CATEGORY)).toString()
             val category = when (categoryStr) {

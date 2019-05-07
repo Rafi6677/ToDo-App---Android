@@ -20,7 +20,5 @@ class Task {
         this.category = category
     }
 
-    constructor() {
-
-    }
+    constructor()
 }

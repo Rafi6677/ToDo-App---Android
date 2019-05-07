@@ -49,7 +49,7 @@ class EditTaskActivity : AppCompatActivity() {
     }
 
     private fun prepareButtons() {
-        taskCategory_EditTaskRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+        taskCategory_EditTaskRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             taskCategory = when(checkedId) {
                 categoryWork_EditTaskRadioButton.id -> Category.Work
                 categoryShopping_EditTaskRadioButton.id -> Category.Shopping
@@ -65,10 +65,10 @@ class EditTaskActivity : AppCompatActivity() {
             var month = (dateParts[1].toInt() - 1).toString()
             val year = dateParts[2]
 
-            if(day[0].equals('0')) day = day[1].toString()
-            if(month[0].equals('0')) month = month[1].toString()
+            if(day[0] == '0') day = day[1].toString()
+            if(month[0] == '0') month = month[1].toString()
 
-            val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, y, m, d ->
+            val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, y, m, d ->
                 switchDateType(d, m, y, editDate_EditTaskButton)
             }, year.toInt(), month.toInt(), day.toInt())
 
@@ -91,16 +91,14 @@ class EditTaskActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("UWAGA!")
                 .setMessage("Czy chcesz usunąć zadanie?")
-                .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                     db.deleteData(id)
                     finish()
                     val intent = Intent(this, TaskListActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 })
-                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { dialog, which ->
-
-                })
+                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { _, _ -> })
                 .show()
         }
 
@@ -109,8 +107,8 @@ class EditTaskActivity : AppCompatActivity() {
         }
     }
 
-    private fun switchDateType(d: Int,m: Int, y: Int, button: Button) {
-        val mm = m-1
+    private fun switchDateType(d: Int, m: Int, y: Int, button: Button) {
+        val mm = m+1
 
         var day: String = d.toString()
         var month: String = mm.toString()
