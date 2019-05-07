@@ -7,12 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.example.todoapp.R
 import com.example.todoapp.db.DatabaseHandler
 import com.example.todoapp.model.Category
-import kotlinx.android.synthetic.main.activity_add_task.*
 import kotlinx.android.synthetic.main.activity_edit_task.*
 
 class EditTaskActivity : AppCompatActivity() {
@@ -98,7 +96,7 @@ class EditTaskActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 })
-                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { _, _ -> })
+                .setNegativeButton("Anuluj") { _, _ -> }
                 .show()
         }
 

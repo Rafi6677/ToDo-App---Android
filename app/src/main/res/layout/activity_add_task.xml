@@ -43,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:ems="10"
+                    android:maxLength="100"
                     android:id="@+id/taskName_AddTaskEditText"
                     app:layout_constraintStart_toEndOf="@+id/taskName_AddTaskTextView"
                     android:textSize="18sp"

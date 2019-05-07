@@ -1,6 +1,5 @@
 package com.example.todoapp.activities
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -69,12 +68,12 @@ class TaskListActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("UWAGA!")
                 .setMessage("Czy chcesz usunąć zadanie?")
-                .setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                .setPositiveButton("OK") { _, _ ->
                     db.deleteData(id)
                     adapter.clear()
                     setupData()
-                })
-                .setNegativeButton("Anuluj", DialogInterface.OnClickListener { _, _ -> })
+                }
+                .setNegativeButton("Anuluj") { _, _ -> }
                 .show()
 
             item.isLongClickable
